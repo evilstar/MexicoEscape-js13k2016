@@ -13,4 +13,31 @@ $.LEVELS = {
 
 $.LEVEL = 0;
 $.LEVEL_MAX = 5;
-$.DEAD = false;
+$.DEAD = true;
+
+$.ONE_RUN = false;
+
+$.REVIVING = false;
+
+$.SPEED = {
+  base: -15,
+  value: 0,
+  max: $.W * 1.5,
+  multiplier: 15,
+  multiplierDef: 15,
+  decreaseMultiplier: 3
+};
+
+$.SPEED.update = function(dt) {
+
+  if($.DEAD && !$.REVIVING) {
+    $.SPEED.value += 900 * dt;
+  } else {
+    $.SPEED.value += $.SPEED.base * $.SPEED.multiplier * dt;
+
+    $.SPEED.multiplier -= dt * $.SPEED.decreaseMultiplier;
+    $.SPEED.multiplier = $.UTILS.clamp($.SPEED.multiplier, 1, 10000);
+  }
+
+  $.SPEED.value = $.UTILS.clamp($.SPEED.value, -$.SPEED.max, 0);
+};

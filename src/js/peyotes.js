@@ -8,45 +8,47 @@ $.PEYOTE = function() {
   this.y = $.H - 10 - 5 * (1 - this.scale / 2.5);
   this.yOffset = $.GFX["peyote"].h * this.scale;
 
-  this.collisionBox = new $.RECT(this.x, this.y - this.yOffset, $.GFX["peyote"].w * this.scale, $.GFX["peyote"].h * this.scale)
+  this.collisionBox = new $.RECT(this.x, this.y - this.yOffset, $.GFX["peyote"].w * this.scale, $.GFX["peyote"].h * this.scale);
 
   this.destroyed = false;
 };
 
 $.PEYOTE.prototype.update = function(dt) {
-  this.x += $.LEVELS.peyote_speed[$.LEVEL] * dt;
+  this.x += $.SPEED.value * dt;
 
   this.collisionBox.x = this.x;
 
-  if(this.collisionBox.collidesWith($.PLAYER.collisionBox)) {
+  if(!$.DEAD && this.collisionBox.collidesWith($.PLAYER.collisionBox)) {
     if($.LEVEL < $.LEVEL_MAX - 1) $.LEVEL++;
-    else $.DEAD = true;
+    else {
+      $.PLAYER.die();
+    }
 
     this.destroyed = true;
   }
 
   if(this.x < -$.GFX.peyote.w * this.scale) {
     this.destroyed = true;
-    $.PLAYER.score += Math.round(12 * this.scale);
+    $.PLAYER.score += Math.round(147 * this.scale) * Math.pow($.LEVEL + 1, 2);
   }
 };
 
-$.PEYOTE.prototype.render = function() {
+$.PEYOTE.prototype.render = function(c) {
   if(!this.destroyed) {
-    $.CTX.game.save();
-    $.CTX.game.translate(this.x, this.y - this.yOffset);
-    $.CTX.game.scale(this.scale, this.scale);
+    c.save();
+    c.translate(this.x, this.y - this.yOffset);
+    c.scale(this.scale, this.scale);
 
-    $.CTX.game.save();
-    $.CTX.game.globalAlpha = this.scale / 2.5 * 0.5;
-    $.CTX.game.fillStyle = "#000";
-    $.CTX.game.beginPath();
-    $.CTX.game.ellipse($.GFX["peyote"].w / 2, 23, 15 * this.scale / 2.5, 4 * this.scale / 2.5, 0, Math.PI * 2, false);
-    $.CTX.game.fill();
-    $.CTX.game.restore();
+    c.save();
+    c.globalAlpha = this.scale / 2.5 * 0.5;
+    c.fillStyle = "#000";
+    c.beginPath();
+    c.ellipse($.GFX["peyote"].w / 2, 23, 15 * this.scale / 2.5, 4 * this.scale / 2.5, 0, Math.PI * 2, false);
+    c.fill();
+    c.restore();
 
-    $.CTX.game.drawImage($.GFX["peyote"].canvas, 0, 0);
-    $.CTX.game.restore();
+    c.drawImage($.GFX["peyote"].canvas, 0, 0);
+    c.restore();
 
     /*$.CTX.ui.strokeStyle = "cyan";
     $.CTX.ui.strokeRect(
@@ -63,16 +65,17 @@ $.PEYOTES.add = function() {
 };
 
 $.PEYOTES.time = 1;
-$.PEYOTES.timer  = 0;
+$.PEYOTES.timer = 0;
+$.PEYOTES.double = false;
 
 $.PEYOTES.update = function(dt) {
 
   if(!$.DEAD) {
     $.PEYOTES.timer += dt;
-    if($.PEYOTES.timer >= $.PEYOTES.time) {
+    while($.PEYOTES.timer >= $.PEYOTES.time) {
       $.PEYOTES.timer -= $.PEYOTES.time;
 
-      $.PEYOTES.time = (Math.random() + 1) * $.LEVELS.peyote_spawn_time_multiplier[$.LEVEL] * (Math.random() < 0.005 ? 0.5 : 1);
+      $.PEYOTES.time = (Math.random() < 0.005 ? 0.75 : 1) * ( ( 1 - Math.abs($.SPEED.value / $.SPEED.max) * 0.6) + 0.2 ) * (1 + Math.random() * 0.4);
 
       $.PEYOTES.add();
     }
@@ -84,8 +87,8 @@ $.PEYOTES.update = function(dt) {
   }
 };
 
-$.PEYOTES.render = function(dt) {
+$.PEYOTES.render = function(c) {
   $.PEYOTES.list.forEach(function(peyote) {
-    peyote.render(dt);
+    peyote.render(c);
   });
 };

@@ -44,7 +44,7 @@ $.GLITCH = function () {
   if(this.width == 0 || this.height == 0) this.lifetime = 0;
 };
 
-$.GLITCH.prototype.update = function (dt) {
+$.GLITCH.prototype.update = function () {
   switch (this.type) {
     case $.GLITCH_TYPE.PIXEL_SHIFT:
       this.shift += Math.floor(Math.random() * 10 - 5) * 4;
@@ -63,13 +63,10 @@ $.GLITCH.prototype.update = function (dt) {
   }
 };
 
-$.GLITCH.prototype.render = function () {
+$.GLITCH.prototype.render = function (c) {
   var data = [];
 
-  /*if(!this.a) this.a = true;
-  else return;*/
-
-  var imageData = $.CTX.game.getImageData(this.x, this.y, this.width, this.height);
+  var imageData = c.getImageData(this.x, this.y, this.width, this.height), i;
 
   imageData.data.map(function (v) {
     data.push(v)
@@ -77,14 +74,14 @@ $.GLITCH.prototype.render = function () {
 
   switch (this.type) {
     case $.GLITCH_TYPE.INVERT:
-      for(var i = 0;i < data.length;i+=4) {
+      for(i = 0;i < data.length;i+=4) {
         data[i]     = 255 - data[i];
         data[i + 1] = 255 - data[i + 1];
         data[i + 2] = 255 - data[i + 2];
       }
       break;
     case $.GLITCH_TYPE.BLACK_AND_WHITE:
-      for(var i = 0;i < data.length;i+=4) {
+      for(i = 0;i < data.length;i+=4) {
 
         var luminosity = data[i] * 0.21 + data[i + 1] * 0.72 + data[i + 2] * 0.07;
 
@@ -94,7 +91,7 @@ $.GLITCH.prototype.render = function () {
       }
       break;
     case $.GLITCH_TYPE.COLOR_SHIFT:
-      for(var i = 0;i < data.length;i+=4) {
+      for(i = 0;i < data.length;i+=4) {
         data[i]     += this.shiftR;
         data[i + 1] += this.shiftG;
         data[i + 2] += this.shiftB;
@@ -109,7 +106,7 @@ $.GLITCH.prototype.render = function () {
       break;
   }
 
-  $.CTX.game.putImageData(new ImageData(
+  c.putImageData(new ImageData(
     new Uint8ClampedArray(data),
       imageData.width,
       imageData.height
@@ -136,8 +133,8 @@ $.GLITCHES.update = function (dt) {
   });
 };
 
-$.GLITCHES.render = function () {
+$.GLITCHES.render = function (c) {
   $.GLITCHES.list.forEach(function (glitch) {
-    glitch.render();
+    glitch.render(c);
   });
 };

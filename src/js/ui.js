@@ -1,55 +1,112 @@
-$.UI = {};
-$.UI.render = function() {
-  $.CTX.ui.strokeStyle = $.CTX.ui.fillStyle = "#fff";
+$.UI = {
+  logoY: -80,
+  logoYMin: -80,
+  logoYMax: 60,
+  startAlpha: 0,
+  menuShowing: false
+};
 
-  $.CTX.ui.save();
+$.UI.update = function(dt) {
+  if($.DEAD) {
+    if($.REVIVING) {
+      $.UI.logoY -= 200 * dt;
+      $.UI.startAlpha -= dt;
+    } else {
+      $.UI.logoY += 200 * dt;
+      $.UI.startAlpha += dt;
+    }
 
-    $.CTX.ui.translate(40,20);
-    $.CTX.ui.scale(2, 2);
+    $.UI.logoY = $.UTILS.clamp($.UI.logoY, $.UI.logoYMin, $.UI.logoYMax);
+    $.UI.startAlpha = $.UTILS.clamp($.UI.startAlpha, 0, 1);
 
-    $.CTX.ui.lineWidth = 2;
-    $.CTX.ui.strokeRect(0, 0, 100, 8);
-    $.CTX.ui.stroke();
+    $.UI.menuShowing = $.UI.logoY == $.UI.logoYMax && $.UI.startAlpha == 1;
+  }
+};
 
-    $.CTX.ui.clearRect(-1, -1, 2, 2);
-    $.CTX.ui.clearRect(-1, 7, 2, 2);
-    $.CTX.ui.clearRect(99, -1, 2, 2);
-    $.CTX.ui.clearRect(99, 7, 2, 2);
+$.UI.render = function(c) {
 
-    $.CTX.ui.beginPath();
-    $.CTX.ui.fillRect(
-      2,
-      2,
-      $.DEAD ? 0 : 96 / $.LEVEL_MAX * ($.LEVEL_MAX - $.LEVEL),
-      4);
-    $.CTX.ui.fill();
+  c.strokeStyle = c.fillStyle = "#fff";
 
-    $.CTX.ui.font = "bold 7px sans-serif";
-    $.CTX.ui.fillText("SANITY", 1, 16);
+  if(!$.DEAD) {
 
-  $.CTX.ui.restore();
+    c.save();
 
-  $.CTX.ui.save();
+      c.translate(40, 20);
+      c.scale(2, 2);
 
-    $.CTX.ui.translate($.W - 250,20);
-    $.CTX.ui.scale(2, 2);
+      c.textAlign = "left";
 
-    $.CTX.ui.lineWidth = 2;
-    $.CTX.ui.strokeRect(0, 0, 100, 8);
-    $.CTX.ui.stroke();
+      c.lineWidth = 2;
+      c.strokeRect(0, 0, 100, 8);
+      c.stroke();
 
-    $.CTX.ui.clearRect(-1, -1, 2, 2);
-    $.CTX.ui.clearRect(-1, 7, 2, 2);
-    $.CTX.ui.clearRect(99, -1, 2, 2);
-    $.CTX.ui.clearRect(99, 7, 2, 2);
+      c.clearRect(-1, -1, 2, 2);
+      c.clearRect(-1, 7, 2, 2);
+      c.clearRect(99, -1, 2, 2);
+      c.clearRect(99, 7, 2, 2);
 
-    $.CTX.ui.textAlign = "right";
+      c.beginPath();
+      c.fillRect(
+        2,
+        2,
+        $.DEAD ? 0 : 96 / $.LEVEL_MAX * ($.LEVEL_MAX - $.LEVEL),
+        4);
+      c.fill();
 
-    $.CTX.ui.font = "bold 7px sans-serif";
-    $.CTX.ui.fillText("SCORE", 98, 16);
+      c.font = "bold 7px sans-serif";
+      c.fillText("SANITY", 1, 16);
 
-    $.CTX.ui.font = "bold 7px sans-serif";
-    $.CTX.ui.fillText("" + $.PLAYER.score, 98, 6.5);
+    c.restore();
 
-  $.CTX.ui.restore();
+    c.save();
+
+      c.translate($.W - 250, 20);
+      c.scale(2, 2);
+
+      c.lineWidth = 2;
+      c.strokeRect(0, 0, 100, 8);
+      c.stroke();
+
+      c.clearRect(-1, -1, 2, 2);
+      c.clearRect(-1, 7, 2, 2);
+      c.clearRect(99, -1, 2, 2);
+      c.clearRect(99, 7, 2, 2);
+
+      c.textAlign = "right";
+
+      c.font = "bold 7px sans-serif";
+      c.fillText("SCORE", 99, 16);
+
+      c.font = "bold 7px sans-serif";
+      c.fillText("" + $.PLAYER.score, 98, 6.5);
+
+    c.restore();
+  } else {
+
+    c.fillStyle = "#143";
+    var marginH = 100;
+    c.roundRect(marginH, $.UI.logoY, $.W - marginH * 2, 80, 5).fill();
+    c.strokeStyle = "#fff";
+    c.roundRect(marginH + 5, $.UI.logoY + 5, $.W - (marginH + 5) * 2, 70, 3).stroke();
+
+    c.textAlign = "center";
+    c.font = "bold 50px sans-serif";
+    c.fillStyle = "#333";
+    var t = "CHILLY GLITCH";
+    c.fillText(t, $.W / 2, $.UI.logoY + 60);
+    c.fillStyle = "#fff";
+    c.fillText(t, $.W / 2, $.UI.logoY + 58);
+
+    c.save();
+    c.globalAlpha = $.UI.startAlpha;
+
+    if($.ONE_RUN) {
+      c.font = "bold 24px sans-serif";
+      c.fillText("SCORE: " + $.PLAYER.score, $.W / 2, 210);
+    }
+
+    c.font = "bold 16px sans-serif";
+    c.fillText(($.MOBILE ? "TAP" : "PRESS SPACE") + " TO START", $.W / 2, 300);
+    c.restore();
+  }
 };

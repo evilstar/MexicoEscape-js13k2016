@@ -1,9 +1,11 @@
 $.PLAYER = {
   score: 0,
-  baseX: 100,
-  x: 100,
+  baseX: 150,
+  x: -$.GFX.player.w,
   y: 0,
   velY: 0,
+  jumpVel: -25,
+  jumpVelMax: -25,
   yOffset: 0,
   yOffsetSpeed: 10,
   yOffsetDir: 1,
@@ -17,12 +19,14 @@ $.PLAYER.getScreenY = function() {
 };
 
 $.PLAYER.update = function(dt) {
-  if($.KEYBOARD.KEYS[38] == $.KEYBOARD.STATE.PRESSED && !$.PLAYER.inAir) {
+  if(!$.DEAD && $.KEYBOARD.KEYS[32] > $.KEYBOARD.STATE.UP && $.PLAYER.jumpVel) {
     $.PLAYER.inAir = true;
-    $.PLAYER.velY = -25;
-  }
+    $.PLAYER.velY += $.PLAYER.jumpVel * dt * 7;
+    $.PLAYER.jumpVel -= $.PLAYER.jumpVelMax * dt * 9;
 
-  if($.PLAYER.inAir)
+    if($.PLAYER.jumpVel >= 0) $.PLAYER.jumpVel = 0;
+
+  } else if($.PLAYER.inAir)
     $.PLAYER.velY -= $.G * dt;
 
   $.PLAYER.y += $.PLAYER.velY;
@@ -32,6 +36,7 @@ $.PLAYER.update = function(dt) {
       $.PLAYER.velY = 0;
       $.PLAYER.y = 0;
       $.PLAYER.inAir = false;
+      $.PLAYER.jumpVel = $.PLAYER.jumpVelMax;
     }
   }
 
@@ -47,24 +52,33 @@ $.PLAYER.update = function(dt) {
   }
 
   if($.DEAD) {
-    if(this.x > -$.GFX.player.w)
-      this.x -= 200 * dt;
+    if($.REVIVING) {
+      if($.PLAYER.x < $.PLAYER.baseX)
+        $.PLAYER.x += 200 * dt;
+      else {
+        $.PLAYER.x = $.PLAYER.baseX;
+        $.PLAYER.onReviveComplete();
+      }
+    } else {
+      if($.PLAYER.x > -$.GFX.player.w)
+        $.PLAYER.x += $.SPEED.value * dt;
+    }
+
+    $.PLAYER.collisionBox.x = $.PLAYER.x;
   }
 };
 
-$.PLAYER.render = function() {
+$.PLAYER.render = function(c) {
   var scale = $.UTILS.clamp(1 - $.PLAYER.y / -100, 0, 1);
-  //console.clear();
-  //console.log(scale);
-  $.CTX.game.save();
-  $.CTX.game.globalAlpha = scale * 0.25;
-  $.CTX.game.fillStyle = "#000";
-  $.CTX.game.beginPath();
-  $.CTX.game.ellipse(this.x + 10, $.H - 10, 25 * scale, 7 * scale, 0, Math.PI * 2, false);
-  $.CTX.game.fill();
-  $.CTX.game.restore();
+  c.save();
+  c.globalAlpha = scale * 0.25;
+  c.fillStyle = "#000";
+  c.beginPath();
+  c.ellipse(this.x + 10, $.H - 10, 25 * scale, 7 * scale, 0, Math.PI * 2, false);
+  c.fill();
+  c.restore();
 
-  $.CTX.game.drawImage($.GFX.player.canvas, this.x, $.PLAYER.getScreenY(), $.GFX.player.w, $.GFX.player.h);
+  c.drawImage($.GFX.player.canvas, this.x, $.PLAYER.getScreenY(), $.GFX.player.w, $.GFX.player.h);
 
   /*$.CTX.ui.strokeStyle = "blue";
   $.CTX.ui.strokeRect(
@@ -73,4 +87,23 @@ $.PLAYER.render = function() {
     $.PLAYER.collisionBox.w,
     $.PLAYER.collisionBox.h
   );*/
+};
+
+
+$.PLAYER.die = function() {
+  $.DEAD = true;
+  $.ONE_RUN = true;
+
+  $.LEVEL = 0;
+  $.SPEED.multiplier = $.SPEED.multiplierDef;
+};
+
+$.PLAYER.revive = function() {
+  $.REVIVING = true;
+};
+
+$.PLAYER.onReviveComplete = function() {
+  $.PLAYER.score = 0;
+  $.REVIVING = false;
+  $.DEAD = false;
 };

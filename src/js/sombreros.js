@@ -7,7 +7,7 @@ $.SOMBRERO = function() {
 
   this.x = $.W;
   this.y = Math.random() * 30 + yOffset;
-  this.velX = Math.random() * (-100) - 50;
+  this.velX = Math.random() * (-2) - 1;
   this.type = Math.floor(Math.random() * 2);
 
   this.scale = (this.y - yOffset) / 30 * 0.4 + 0.2;
@@ -16,20 +16,20 @@ $.SOMBRERO = function() {
 };
 
 $.SOMBRERO.prototype.update = function(dt) {
-  this.x += this.velX * dt;
+  this.x += $.SPEED.value * this.velX * dt;
 
   if(this.x < -$.GFX.sombrero.w * this.scale) {
     this.destroyed = true;
   }
 };
 
-$.SOMBRERO.prototype.render = function() {
-  $.CTX.game.save();
-  $.CTX.game.translate(this.x, this.y);
-  $.CTX.game.scale(this.scale, this.scale);
-  $.CTX.game.globalAlpha = $.UTILS.clamp(this.scale * 2.5, 0, 1);
-  $.CTX.game.drawImage($.GFX["sombrero"].canvas, this.x, this.y);
-  $.CTX.game.restore();
+$.SOMBRERO.prototype.render = function(c) {
+  c.save();
+  c.translate(this.x, this.y);
+  c.scale(this.scale, this.scale);
+  c.globalAlpha = $.UTILS.clamp(this.scale * 2.5, 0, 1);
+  c.drawImage($.GFX["sombrero"].canvas, 0, 0);
+  c.restore();
 };
 
 $.SOMBREROS.add = function() {
@@ -43,9 +43,9 @@ $.SOMBREROS.update = function(dt) {
   }
 };
 
-$.SOMBREROS.render = function() {
+$.SOMBREROS.render = function(c) {
   $.SOMBREROS.list.forEach(function(sombrero) {
-    sombrero.render();
+    sombrero.render(c);
   });
 };
 

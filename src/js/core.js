@@ -1,11 +1,5 @@
-$.w = window;
-$.d = document;
-
 $.CNV = {game: null, ui: null, crt: null}; // TODO: Remove for build
 $.CTX = {game: null, ui: null, crt: null}; // TODO: Remove for build
-
-$.W = 640;
-$.H = 360;
 
 $.G = -9.8 * 10 / 1.25;
 
@@ -63,59 +57,36 @@ $.loop = function () {
   $.render();
 };
 $.update = function (dt) {
-  /*
-   * Update player
-   * Update enemies
-   * Update post-processing
-   * */
+  if($.DEAD && $.UI.menuShowing && $.KEYBOARD.KEYS[32] > $.KEYBOARD.STATE.UP) {
+    $.PLAYER.revive();
+  }
+
+  $.UI.update(dt);
 
   $.PLAYER.update(dt);
 
+  $.SPEED.update(dt);
   $.BACKGROUND.update(dt);
 
-
   if(Math.random() < $.LEVELS.glitch_spawn_chance[$.LEVEL]) $.GLITCHES.add();
-  //if(Math.random() < 0.005) $.CLOUDS.add();
   if(Math.random() < $.LEVELS.sombrero_spawn_chance[$.LEVEL]) $.SOMBREROS.add();
 
   $.GLITCHES.update(dt);
   $.SOMBREROS.update(dt);
-  $.CLOUDS.update(dt);
   $.PEYOTES.update(dt);
 };
 $.render = function () {
-  /*
-   * Render bg
-   * Render player
-   * Render enemies
-   * Render UI
-   * Apply post-processing
-   * */
 
   $.canvasesToRedraw.forEach(function (c) {
     $.CTX[c].clearRect(0, 0, innerWidth, innerHeight);
   });
 
-  // Render bg
-  //$.CTX.game.drawImage($.GFX.bg.canvas, 0, 0, $.W, $.H);
-  $.BACKGROUND.render();
-
-  // Render peyotes
-  $.PEYOTES.render();
-
-  // Render SOMBREROS
-  $.SOMBREROS.render();
-
-  // Render player
-  $.PLAYER.render();
-
-  // Render clouds
-  $.CLOUDS.render();
-
-  // Apply post-processing
-  $.GLITCHES.render();
-
-  $.UI.render();
+  $.BACKGROUND.render($.CTX.game);
+  $.PEYOTES.render($.CTX.game);
+  $.SOMBREROS.render($.CTX.game);
+  $.PLAYER.render($.CTX.game);
+  $.GLITCHES.render($.CTX.game);
+  $.UI.render($.CTX.ui);
 };
 
 $.w.onload = $.init;
