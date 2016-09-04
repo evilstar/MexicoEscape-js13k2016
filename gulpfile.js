@@ -42,7 +42,7 @@ var gulp          = require('gulp'),
             'src/js/glitches.js',
             'src/js/crt.js',
             'src/js/sombreros.js',
-            'src/js/peyotas.js',
+            'src/js/peyotes.js',
             'src/js/background.js',
             'src/js/ui.js',
             'src/js/core.js'
