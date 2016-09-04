@@ -3,6 +3,8 @@ $.CTX = {game: null, ui: null, crt: null}; // TODO: Remove for build
 
 $.G = -9.8 * 10 / 1.25;
 
+$.POINTER_DOWN = false;
+
 $.canvases = ["game", "ui", "crt"];
 $.canvasesToRedraw = ["game", "ui"];
 $.init = function () {
@@ -24,6 +26,18 @@ $.init = function () {
   //$.resize();
 
   //$.w.addEventListener("resize", $.resize);
+
+  $.d.body.addEventListener("touchstart", function() {
+    $.POINTER_DOWN = true;
+  });
+
+  $.d.body.addEventListener("touchend", function() {
+    $.POINTER_DOWN = false;
+  });
+
+  $.d.body.addEventListener("touchleave", function() {
+    $.POINTER_DOWN = false;
+  });
 
   $.KEYBOARD.init();
 
@@ -57,7 +71,7 @@ $.loop = function () {
   $.render();
 };
 $.update = function (dt) {
-  if($.DEAD && $.UI.menuShowing && $.KEYBOARD.KEYS[32] > $.KEYBOARD.STATE.UP) {
+  if($.DEAD && $.UI.menuShowing && ($.KEYBOARD.KEYS[32] > $.KEYBOARD.STATE.UP || $.POINTER_DOWN)) {
     $.PLAYER.revive();
   }
 

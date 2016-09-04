@@ -84,7 +84,7 @@ $.UI.render = function(c) {
   } else {
 
     c.fillStyle = "#143";
-    var marginH = 100;
+    var marginH = 90;
     c.roundRect(marginH, $.UI.logoY, $.W - marginH * 2, 80, 5).fill();
     c.strokeStyle = "#fff";
     c.roundRect(marginH + 5, $.UI.logoY + 5, $.W - (marginH + 5) * 2, 70, 3).stroke();
@@ -92,7 +92,7 @@ $.UI.render = function(c) {
     c.textAlign = "center";
     c.font = "bold 50px sans-serif";
     c.fillStyle = "#333";
-    var t = "CHILLY GLITCH";
+    var t = "MEXICO ESCAPE";
     c.fillText(t, $.W / 2, $.UI.logoY + 60);
     c.fillStyle = "#fff";
     c.fillText(t, $.W / 2, $.UI.logoY + 58);

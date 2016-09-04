@@ -19,7 +19,7 @@ $.PLAYER.getScreenY = function() {
 };
 
 $.PLAYER.update = function(dt) {
-  if(!$.DEAD && $.KEYBOARD.KEYS[32] > $.KEYBOARD.STATE.UP && $.PLAYER.jumpVel) {
+  if(!$.DEAD && ($.KEYBOARD.KEYS[32] > $.KEYBOARD.STATE.UP || $.POINTER_DOWN) && $.PLAYER.jumpVel) {
     $.PLAYER.inAir = true;
     $.PLAYER.velY += $.PLAYER.jumpVel * dt * 7;
     $.PLAYER.jumpVel -= $.PLAYER.jumpVelMax * dt * 9;

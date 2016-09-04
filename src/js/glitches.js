@@ -8,12 +8,27 @@ $.GLITCH_TYPE.INVERT = 1;
 $.GLITCH_TYPE.BLACK_AND_WHITE = 2;
 $.GLITCH_TYPE.COLOR_SHIFT = 3;
 
-$.GLITCHES_COUNT = Object.keys($.GLITCH_TYPE).length;
+$.GLITCHES_FOR_DEVICE_TYPE = {
+  desktop: [
+    $.GLITCH_TYPE.PIXEL_SHIFT,
+    $.GLITCH_TYPE.INVERT,
+    $.GLITCH_TYPE.BLACK_AND_WHITE,
+    $.GLITCH_TYPE.COLOR_SHIFT
+  ],
+  mobile: [
+    $.GLITCH_TYPE.INVERT,
+    $.GLITCH_TYPE.BLACK_AND_WHITE
+  ]
+};
+
+$.GLITCHES_FOR_DEVICE = $.GLITCHES_FOR_DEVICE_TYPE[( $.MOBILE ? "mobile" : "desktop" )];
 
 $.GLITCHES_TYPES = [];
 
 $.GLITCH = function () {
-  this.type = Math.floor(Math.random() * $.GLITCHES_COUNT);
+
+
+  this.type = $.GLITCHES_FOR_DEVICE[Math.floor(Math.random() * $.GLITCHES_FOR_DEVICE.length)];
 
   this.x = Math.random() * $.W;
   this.y = Math.random() * $.H;

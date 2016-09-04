@@ -24,16 +24,28 @@ var gulp          = require('gulp'),
     distPaths = {
         build: '_build',
         js_build_file: 'game.min.js',
-        css_build_file: 'game.min..css'
+        css_build_file: 'game.min.css'
     },
 
     sourcePaths = {
         css: [
-            'src/css/*.css', 
+            'src/css/*.css'
         ],
         js: [
-            'src/js/game.js', 
-            'src/js/*.js'
+            'src/js/startup.js',
+            'src/js/levels.js',
+            'src/js/utils.js',
+            'src/js/rect.js',
+            'src/js/keyboard.js',
+            'src/js/gfx.js',
+            'src/js/player.js',
+            'src/js/glitches.js',
+            'src/js/crt.js',
+            'src/js/sombreros.js',
+            'src/js/peyotas.js',
+            'src/js/background.js',
+            'src/js/ui.js',
+            'src/js/core.js'
         ],
         mainHtml: [
             'src/index.html' 
@@ -92,7 +104,7 @@ gulp.task('zipBuild', function () {
         .pipe(zip('game.zip'))
         .pipe(gulp.dest('./_dist'))
         .pipe(checkFileSize({
-            fileSizeLimit: 16384 
+            fileSizeLimit: 13312
         }));
 });
 
