@@ -7,7 +7,7 @@ $.SOMBRERO = function() {
 
   this.x = $.W;
   this.y = Math.random() * 30 + yOffset;
-  this.velX = Math.random() * (-2) - 1;
+  this.velX = Math.abs(Math.random() * 2 - 0.5);
   this.type = Math.floor(Math.random() * 2);
 
   this.scale = (this.y - yOffset) / 30 * 0.4 + 0.2;
@@ -16,7 +16,7 @@ $.SOMBRERO = function() {
 };
 
 $.SOMBRERO.prototype.update = function(dt) {
-  this.x += $.SPEED.value * this.velX * dt;
+  this.x += Math.min($.SPEED.value, -250) * this.velX * dt;
 
   if(this.x < -$.GFX.sombrero.w * this.scale) {
     this.destroyed = true;
