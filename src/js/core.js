@@ -3,6 +3,8 @@ $.CTX = {game: null, ui: null, crt: null}; // TODO: Remove for build
 
 $.G = -9.8 * 10 / 1.25;
 
+$.SCALE = 1;
+
 $.POINTER_DOWN = false;
 
 $.canvases = ["game", "ui", "crt"];
@@ -23,12 +25,14 @@ $.init = function () {
     $.d.body.appendChild($.CNV[c]);
   });
 
-  //$.resize();
+  $.resize();
 
-  //$.w.addEventListener("resize", $.resize);
+  $.w.addEventListener("resize", $.resize);
 
   $.d.body.addEventListener("touchstart", function() {
     $.POINTER_DOWN = true;
+
+    if($.MOBILE && $.PLAYER.hasJumped()) $.SOUNDS.jump.audio.play();
   });
 
   $.d.body.addEventListener("touchend", function() {
@@ -38,6 +42,8 @@ $.init = function () {
   $.d.body.addEventListener("touchleave", function() {
     $.POINTER_DOWN = false;
   });
+
+  $.SOUND_MANAGER.init();
 
   $.KEYBOARD.init();
 
@@ -49,11 +55,23 @@ $.init = function () {
 };
 
 $.resize = function () {
-  $.W = innerWidth;
-  $.H = innerHeight;
+  var width = innerWidth;
+  var height = innerHeight;
+  var scaleX = width / $.W;
+  var scaleY = height / $.H;
+  $.SCALE = Math.min(scaleX, scaleY);
+  var translateX = (width - $.W * $.SCALE) / 2;
+  var translateY = (height - $.H * $.SCALE) / 2;
+
   $.canvases.forEach(function (c) {
-    $.CNV[c].width = $.W;
-    $.CNV[c].height = $.H;
+    $.CNV[c].style.position = "absolute";
+    $.CNV[c].style.width = $.UTILS.px($.W);
+    $.CNV[c].style.height = $.UTILS.px($.H);
+    $.CNV[c].style.top = $.UTILS.px(translateY);
+    $.CNV[c].style.left = $.UTILS.px(translateX);
+    $.CNV[c].style.transformOrigin = "0 0";
+    $.CNV[c].style.transform = "scale(" + $.SCALE + ", " + $.SCALE + ")";
+    $.CNV[c].style.webkitTransform = "scale(" + $.SCALE + ", " + $.SCALE + ")";
   });
 };
 

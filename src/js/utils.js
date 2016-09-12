@@ -12,6 +12,8 @@ $.UTILS.clamp = function (v, min, max) {
   return v < min ? min : (v > max ? max : v);
 };
 
+$.UTILS.px = function(_) { return _ + "px" };
+
 CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
   if (w < 2 * r) r = w / 2;
   if (h < 2 * r) r = h / 2;

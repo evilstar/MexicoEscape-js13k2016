@@ -18,13 +18,19 @@ $.PLAYER.getScreenY = function() {
   return $.PLAYER.y - $.PLAYER.yOffset + $.H - $.GFX.player.h - 10;
 };
 
+$.PLAYER.hasJumped = function() {
+  return !$.DEAD && ($.KEYBOARD.KEYS[32] > $.KEYBOARD.STATE.UP || $.POINTER_DOWN) && $.PLAYER.jumpVel;
+};
+
 $.PLAYER.update = function(dt) {
-  if(!$.DEAD && ($.KEYBOARD.KEYS[32] > $.KEYBOARD.STATE.UP || $.POINTER_DOWN) && $.PLAYER.jumpVel) {
+  if($.PLAYER.hasJumped()) {
     $.PLAYER.inAir = true;
     $.PLAYER.velY += $.PLAYER.jumpVel * dt * 7;
     $.PLAYER.jumpVel -= $.PLAYER.jumpVelMax * dt * 9;
 
     if($.PLAYER.jumpVel >= 0) $.PLAYER.jumpVel = 0;
+
+    if(!$.MOBILE) $.SOUNDS.jump.audio.play();
 
   } else if($.PLAYER.inAir)
     $.PLAYER.velY -= $.G * dt;

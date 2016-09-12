@@ -19,10 +19,14 @@ $.PEYOTE.prototype.update = function(dt) {
   this.collisionBox.x = this.x;
 
   if(!$.DEAD && this.collisionBox.collidesWith($.PLAYER.collisionBox)) {
-    if($.LEVEL < $.LEVEL_MAX - 1) $.LEVEL++;
-    else {
+    if($.LEVEL < $.LEVEL_MAX - 1) {
+      $.LEVEL++;
+      $.SOUNDS.hit.audio.play();
+    } else {
+      $.SOUNDS.die.audio.play();
       $.PLAYER.die();
     }
+
 
     this.destroyed = true;
   }

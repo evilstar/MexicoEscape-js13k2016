@@ -121,14 +121,18 @@ $.GLITCH.prototype.render = function (c) {
       break;
   }
 
-  c.putImageData(new ImageData(
-    new Uint8ClampedArray(data),
+  try {
+    c.putImageData(new ImageData(
+      new Uint8ClampedArray(data),
       imageData.width,
       imageData.height
-    ),
-    this.x,
-    this.y
-  );
+      ),
+      this.x,
+      this.y
+    );
+  } catch(e) {
+    //Prevent errors showing in Edge
+  }
 };
 
 $.GLITCHES.add = function () {

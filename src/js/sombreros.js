@@ -16,7 +16,7 @@ $.SOMBRERO = function() {
 };
 
 $.SOMBRERO.prototype.update = function(dt) {
-  this.x += Math.min($.SPEED.value, -250) * this.velX * dt;
+  this.x += Math.max($.SPEED.value, -500) * this.velX * dt;
 
   if(this.x < -$.GFX.sombrero.w * this.scale) {
     this.destroyed = true;

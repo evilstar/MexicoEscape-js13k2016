@@ -3,40 +3,36 @@ $.GFX_COLOR_TABLE = {
   "b": "047|026|027|255",
   "c": "073|044|040|255",
   "d": "167|113|092|255",
-  "e": "146|146|146|255",
-  "f": "000|255|255|255",
-  "g": "203|203|203|255",
-  "h": "255|125|000|255",
-  "i": "255|065|000|255",
-  "j": "223|192|126|255",
-  "k": "228|185|090|255",
-  "l": "179|145|072|255",
-  "m": "128|098|032|255",
-  "n": "084|058|002|255",
-  "o": "210|154|055|255",
-  "p": "195|128|028|255",
-  "q": "036|150|001|255",
-  "r": "022|095|000|255",
-  "s": "012|049|000|255",
-  "t": "255|054|000|255",
-  "u": "113|024|001|255",
-  "v": "195|042|002|255",
-  "w": "150|032|001|255",
-  "x": "213|195|178|255",
-  "y": "183|167|151|255",
-  "z": "176|161|147|255",
-  "A": "145|133|121|255",
-  "L": "000|000|000|000",
-  "B": "225|206|189|255",
-  "C": "234|197|077|255",
-  "D": "239|224|211|255",
-  "E": "046|054|044|255",
-  "F": "085|096|081|255",
+  "e": "051|120|030|255",
+  "f": "032|076|019|255",
+  "g": "017|039|010|255",
+  "h": "204|083|051|255",
+  "i": "090|037|023|255",
+  "j": "156|064|040|255",
+  "k": "120|049|030|255",
+  "l": "206|195|185|255",
+  "m": "176|166|157|255",
+  "n": "176|161|147|255",
+  "o": "145|133|121|255",
+  "p": "200|184|149|255",
+  "q": "195|172|123|255",
+  "r": "153|135|097|255",
+  "s": "105|089|055|255",
+  "t": "064|050|021|255",
+  "u": "173|144|092|255",
+  "v": "155|120|068|255",
+  "w": "251|223|132|255",
+  "x": "234|197|077|255",
+  "y": "239|224|211|255",
+  "z": "250|241|233|255",
+  "A": "225|206|189|255",
+  "B": "068|090|062|255",
+  "C": "046|054|044|255",
+  "D": "118|131|114|255",
+  "E": "085|096|081|255",
+  "F": "068|091|062|255",
   "G": "041|049|038|255",
-  "H": "118|131|114|255",
-  "I": "068|091|062|255",
-  "J": "032|041|029|255",
-  "K": "068|090|062|255"
+  "H": "032|041|029|255"
 };
 
 $.GFX = {
@@ -45,42 +41,42 @@ $.GFX = {
     h: 236,
     canvas: null,
     ctx: null,
-    pack: "a83.b6.a629.b19.a620.b21.a619.b22.a618.b22.a616.b24.a616.b24.a616.b24.a615.b25.a458.b3.a154.b26.a455.b7.a151.b27.a454.b8.a151.b27.a453.b9.a151.b27.a452.b11.a150.b28.a450.b13.a149.b29.a131.b.a316.b15.a148.b29.a131.b.a315.b17.a147.b29.a131.b.a315.b18.a145.b30.a131.b.a313.b21.a144.b30.a130.b2.a311.b24.a143.b30.a130.b2.a310.b26.a141.b31.a130.b2.a302.b37.a137.b32.a130.b2.a301.b41.a131.b35.a130.b2.a300.b44.a129.b36.a129.b2.a299.b46.a128.b36.a128.b3.a298.b48.a127.b37.a126.b4.a297.b50.a125.b38.a126.b4.a296.b51.a125.b39.a125.b4.a286.b3.a.b2.a4.b51.a124.b40.a125.b4.a283.b10.a2.b52.a123.b41.a125.b5.a280.b13.a.b53.a8.b2.a6.b11.a95.b41.a125.b5.a273.b3.a3.b69.a6.b21.a92.b44.a124.b5.a269.b80.a3.b24.a89.b46.a123.b7.a240.b3.a.b2.a20.b82.a2.b26.a2.b3.a82.b48.a122.b7.a237.b.a2.b7.a18.b118.a78.b50.a122.b8.a235.b12.a15.b121.a75.b53.a120.b9.a234.b13.a14.b124.a58.b7.a6.b57.a3.b3.a.b2.a109.b9.a233.b18.a9.b126.a52.b76.a2.b7.a108.b9.a200.b3.a.b2.a23.b23.a2.b.a3.b129.a50.b87.a107.b10.a196.b.a2.b7.a20.b29.a.b131.a48.b88.a106.b11.a131.b2.a62.b12.a17.b164.a45.b94.a102.b12.a129.b13.a44.b3.a.b2.a.b13.a15.b168.a18.b5.a18.b97.a2.b.a36.b3.a.b2.a56.b12.a127.b16.a40.b.a.b25.a10.b173.a11.b10.a10.b107.a23.b2.a2.b3.a.b12.a53.b13.a72.b4.a50.b20.a.b2.a33.b29.a2.b.a2.b181.a4.b14.a7.b113.a16.b24.a51.b15.a69.b16.a39.b26.a30.b234.a5.b116.a14.b26.a49.b20.a.b2.a61.b27.a28.b28.a28.b359.a9.b32.a39.b31.a14.b3.a.b2.a15.b9.a14.b31.a25.b29.a26.b361.a3.b3.a.b36.a33.b35.a10.b12.a10.b12.a13.b32.a23.b32.a23.b363.a2.b44.a27.b38.a8.b14.a8.b14.a11.b34.a21.b35.a.b.a18.b412.a23.b42.a5.b16.a6.b15.a10.b36.a4.b3.a.b2.a10.b39.a14.b415.a21.b45.a.b19.a4.b20.a6.b49.a7.b42.a8.b419.a9.b3.a.b2.a3.b93.a.b.a.b51.a4.b46.a5.b422.a4.b.a2.b157.a2.b49.a2.b425.a.b117565"
+    pack: "a83b6a629b19a620b21a619b22a618b22a616b24a616b24a616b24a615b25a458b3a154b26a455b7a151b27a454b8a151b27a453b9a151b27a452b11a150b28a450b13a149b29a131ba316b15a148b29a131ba315b17a147b29a131ba315b18a145b30a131ba313b21a144b30a130b2a311b24a143b30a130b2a310b26a141b31a130b2a302b37a137b32a130b2a301b41a131b35a130b2a300b44a129b36a129b2a299b46a128b36a128b3a298b48a127b37a126b4a297b50a125b38a126b4a296b51a125b39a125b4a286b3ab2a4b51a124b40a125b4a283b10a2b52a123b41a125b5a280b13ab53a8b2a6b11a95b41a125b5a273b3a3b69a6b21a92b44a124b5a269b80a3b24a89b46a123b7a240b3ab2a20b82a2b26a2b3a82b48a122b7a237ba2b7a18b118a78b50a122b8a235b12a15b121a75b53a120b9a234b13a14b124a58b7a6b57a3b3ab2a109b9a233b18a9b126a52b76a2b7a108b9a200b3ab2a23b23a2ba3b129a50b87a107b10a196ba2b7a20b29ab131a48b88a106b11a131b2a62b12a17b164a45b94a102b12a129b13a44b3ab2ab13a15b168a18b5a18b97a2ba36b3ab2a56b12a127b16a40bab25a10b173a11b10a10b107a23b2a2b3ab12a53b13a72b4a50b20ab2a33b29a2ba2b181a4b14a7b113a16b24a51b15a69b16a39b26a30b234a5b116a14b26a49b20ab2a61b27a28b28a28b359a9b32a39b31a14b3ab2a15b9a14b31a25b29a26b361a3b3ab36a33b35a10b12a10b12a13b32a23b32a23b363a2b44a27b38a8b14a8b14a11b34a21b35aba18b412a23b42a5b16a6b15a10b36a4b3ab2a10b39a14b415a21b45ab19a4b20a6b49a7b42a8b419a9b3ab2a3b93abab51a4b46a5b422a4ba2b157a2b49a2b425ab117565"
   },
   bg_layer_2: {
     w: 640,
     h: 175,
     canvas: null,
     ctx: null,
-    pack: "a574.c12.a622.c24.a612.c32.a605.c38.a589.c54.a580.c62.a574.c68.a198.c12.a359.c73.a59.c12.a64.c12.a21.c12.a10.c24.a10.c12.a328.c82.a47.c24.a52.c24.a9.c80.a254.c12.a16.c12.a26.c90.a37.c32.a44.c32.a.c88.a244.c24.a4.c24.a18.c96.a30.c38.a23.c142.a237.c60.a12.c101.a24.c44.a14.c151.a134.c12.a16.c12.a57.c66.a3.c113.a7.c57.a8.c157.a104.c12.a10.c24.a4.c24.a10.c12.a16.c261.a3.c162.a96.c108.a4.c434.a90.c556.a81.c565.a72.c572.a13.c.a23.c.a19.c586.a5.c11.a13.c11.a8.c99547"
+    pack: "a574c12a622c24a612c32a605c38a589c54a580c62a574c68a198c12a359c73a59c12a64c12a21c12a10c24a10c12a328c82a47c24a52c24a9c80a254c12a16c12a26c90a37c32a44c32ac88a244c24a4c24a18c96a30c38a23c142a237c60a12c101a24c44a14c151a134c12a16c12a57c66a3c113a7c57a8c157a104c12a10c24a4c24a10c12a16c261a3c162a96c108a4c434a90c556a81c565a72c572a13ca23ca19c586a5c11a13c11a8c99547"
   },
   bg_layer_3: {
     w: 640,
     h: 122,
     canvas: null,
     ctx: null,
-    pack: "a236.d26.a599.d45.a591.d63.a360.d6.a199.d7.a.d76.a345.d20.a92.d9.a88.d106.a317.d32.a83.d24.a74.d120.a302.d41.a77.d43.a23.d10.a15.d134.a293.d60.a60.d236.a279.d69.a55.d239.a272.d83.a45.d246.a261.d112.a14.d263.a246.d399.a236.d413.a223.d426.a204.d441.a183.d462.a159.d486.a150.d495.a141.d530.a88.d572.a39.d4.a23.d65409"
+    pack: "a236d26a599d45a591d63a360d6a199d7ad76a345d20a92d9a88d106a317d32a83d24a74d120a302d41a77d43a23d10a15d134a293d60a60d236a279d69a55d239a272d83a45d246a261d112a14d263a246d399a236d413a223d426a204d441a183d462a159d486a150d495a141d530a88d572a39d4a23d65409"
   },
   player: {
     w: 41,
     h: 89,
     canvas: null,
     ctx: null,
-    pack: "a14.q.a40.r.a40.r.q.a39.s.r.a39.s.r.q.a39.s.r.q.a39.s.r.q.a39.s.r2.q.a38.s.r2.q.a38.s.r2.a39.s.r2.q.a37.s.r2.q.a37.s.r3.a36.s2.r3.q.a35.s.r.s.r3.a30.s4.r.s.r.s.r3.q6.a23.s4.r.s.r.s.r6.q.r.q.r.q2.a20.s4.r.s.r.s.r8.q.r.q.r2.q.a18.s4.r.s.r.s.r12.q.r2.q.a16.s6.r.s.r14.t.s.r.q.a14.s6.r.s.r5.q.r8.t4.s.a14.u2.s3.r.s.r.s.v2.s.q.r.q.v2.s.r4.q.t5.a13.u.w2.s3.r.s.v.w.v.w.s.q.v4.s2.r.q.r.q.t5.a11.u2.w2.s2.r.s.v.w.v9.t.v.s2.r.q.t5.a11.u2.w7.v.w.v.w.v7.t.v.t9.a9.u2.w7.v.w.v11.t.v.t8.a9.u2.w8.v.w.v.w.v7.t.v.t10.a8.u2.w7.v.w.v11.t.v.t9.a8.u2.w6.v.w.v11.t.v.t.v.t8.a7.u2.w8.v.w.v.w.v9.t.v.t.v2.t6.a7.u2.w7.v.w.v13.t.x2.y.v.t6.a6.u2.w8.v14.x4.y.v.t5.a6.u2.w7.v.w.v.w.v11.x2.z.A.y.v.t5.a6.u2.w8.v14.x2.z.A.y.v.t5.a6.u2.w7.v.w.v.w.v11.x4.y.v.t5.a6.u2.w6.v.w.v15.x2.y.v.t6.a6.u2.w7.v.w.v.w.v11.t.v.t.v.t7.a6.u2.w6.v.w.v15.t.v.t8.a6.u2.w7.v.w.v.w.v11.t.v.t9.a6.u2.w6.v.w.v13.t.v.t.v.t8.a7.u.w6.v.w.v14.t.v.t8.a8.u2.w6.v.w.v.w.v10.t.v.t9.a9.u.w5.v.w.v14.t.v.t2.x.y.t4.a9.u.w6.v.w.v.w.v10.t.v.t3.x.y.t4.a10.w7.v14.t9.a11.w6.v.w.v12.t.v.t8.a11.u.w6.v.w.v.w.v10.t8.a13.w5.v.w.v12.t.v.t6.a14.w6.v.w.v.w.v8.t.v.t7.a14.w5.v.w.v12.t8.a14.w6.v.w.v.w.v8.t.v.t6.a15.w5.v.w.v10.t.v.t7.a15.w4.v.w.v.w.v.w.v6.t.v.t8.a15.w5.v.w.v10.t.v.t6.a16.w4.v.w.v.w.v.w.v6.t.v.t7.a16.w5.v.w.v10.t8.a16.w4.v.w.v10.t.v.t6.a17.w3.v.w.v.w.v.w.v6.t.v.t.v.t5.a17.w4.v.w.v10.t.v.t5.a18.w3.v.w.v10.t.v.t6.a18.w2.v.w.v.w.v.w.v6.t.v.t6.a18.u.w3.v.w.v8.t.v.t.v.t5.a18.w3.v.w.v10.t.v.t5.a19.w4.v.w.v.w.v6.t.v.t6.a19.w3.v.w.v8.t.v.t6.a19.w3.v.w.v2.w.v5.t.v.t7.a19.w2.v.w.v10.t7.a20.w3.v.w.v.w.v6.t.v.t5.a20.u.w2.v.w.v8.t.v.t6.a20.w4.v.w.v.w.v6.t6.a21.w3.v.w.v8.t.v.t4.a22.w2.v.w.v10.t5.a22.w3.v.w.v.w.v7.t4.a23.w2.v.w.v9.t5.a23.w3.v.w.v.w.v6.t4.a23.u.w2.v.w.v9.t3.a24.w2.v.w.v.w.v.w.v5.t3.a25.w3.v.w.v8.t2.a26.w2.v.w.v2.w.v5.t2.a26.w2.v.w.v8.t3.a26.w3.v.w.v.w.v4.t3.a26.u.w2.v.w.v5.t4.a26.u.w2.v.w.v5.t4.a27.u.w3.v.w.v.w.v.t3.a28.u.w3.v.w.v3.t2.a29.u.w3.v.w.v2.w.t.a30.u2.w2.v.w.v3.a32.u.w4.v.w.a35.w3.v.a36"
+    pack: "a14ea40fa40fea39gfa39gfea39gfea39gfea39gf2ea38gf2ea38gf2a39gf2ea37gf2ea37gf3a36g2f3ea35gfgf3a30g4fgfgf3e6a23g4fgfgf6efefe2a20g4fgfgf8efef2ea18g4fgfgf12ef2ea16g6fgf14hgfea14g6fgf5ef8h4ga14i2g3fgfgj2gefej2gf4eh5a13ik2g3fgjkjkgej4g2fefeh5a11i2k2g2fgjkj9hjg2feh5a11i2k7jkjkj7hjh9a9i2k7jkj11hjh8a9i2k8jkjkj7hjh10a8i2k7jkj11hjh9a8i2k6jkj11hjhjh8a7i2k8jkjkj9hjhj2h6a7i2k7jkj13hl2mjh6a6i2k8j14l4mjh5a6i2k7jkjkj11l2nomjh5a6i2k8j14l2nomjh5a6i2k7jkjkj11l4mjh5a6i2k6jkj15l2mjh6a6i2k7jkjkj11hjhjh7a6i2k6jkj15hjh8a6i2k7jkjkj11hjh9a6i2k6jkj13hjhjh8a7ik6jkj14hjh8a8i2k6jkjkj10hjh9a9ik5jkj14hjh2lmh4a9ik6jkjkj10hjh3lmh4a10k7j14h9a11k6jkj12hjh8a11ik6jkjkj10h8a13k5jkj12hjh6a14k6jkjkj8hjh7a14k5jkj12h8a14k6jkjkj8hjh6a15k5jkj10hjh7a15k4jkjkjkj6hjh8a15k5jkj10hjh6a16k4jkjkjkj6hjh7a16k5jkj10h8a16k4jkj10hjh6a17k3jkjkjkj6hjhjh5a17k4jkj10hjh5a18k3jkj10hjh6a18k2jkjkjkj6hjh6a18ik3jkj8hjhjh5a18k3jkj10hjh5a19k4jkjkj6hjh6a19k3jkj8hjh6a19k3jkj2kj5hjh7a19k2jkj10h7a20k3jkjkj6hjh5a20ik2jkj8hjh6a20k4jkjkj6h6a21k3jkj8hjh4a22k2jkj10h5a22k3jkjkj7h4a23k2jkj9h5a23k3jkjkj6h4a23ik2jkj9h3a24k2jkjkjkj5h3a25k3jkj8h2a26k2jkj2kj5h2a26k2jkj8h3a26k3jkjkj4h3a26ik2jkj5h4a26ik2jkj5h4a27ik3jkjkjh3a28ik3jkj3h2a29ik3jkj2kha30i2k2jkj3a32ik4jka35k3ja36"
   },
   sombrero: {
     w: 235,
     h: 105,
     canvas: null,
     ctx: null,
-    pack: "a105.j25.a210.j25.a210.j25.a210.j25.a210.j25.a205.j5.k5.l5.k5.l5.k5.j5.a200.j5.k5.l5.k5.l5.k5.j5.a200.j5.k5.l5.k5.l5.k5.j5.a200.j5.k5.l5.k5.l5.k5.j5.a200.j5.k5.l5.k5.l5.k5.j5.a200.k5.l5.k5.l5.k5.l5.k5.a200.k5.l5.k5.l5.k5.l5.k5.a200.k5.l5.k5.l5.k5.l5.k5.a200.k5.l5.k5.l5.k5.l5.k5.a200.k5.l5.k5.l5.k5.l5.k5.a195.j5.l5.k5.l5.k5.l5.k5.l5.j5.a190.j5.l5.k5.l5.k5.l5.k5.l5.j5.a190.j5.l5.k5.l5.k5.l5.k5.l5.j5.a190.j5.l5.k5.l5.k5.l5.k5.l5.j5.a190.j5.l5.k5.l5.k5.l5.k5.l5.j5.a185.j5.l5.k5.l25.k5.l5.j5.a180.j5.l5.k5.l25.k5.l5.j5.a180.j5.l5.k5.l25.k5.l5.j5.a180.j5.l5.k5.l25.k5.l5.j5.a180.j5.l5.k5.l25.k5.l5.j5.a180.l20.k5.l5.k5.l20.a180.l20.k5.l5.k5.l20.a180.l20.k5.l5.k5.l20.a180.l20.k5.l5.k5.l20.a180.l20.k5.l5.k5.l20.a175.l5.k5.l5.k5.l25.k5.l5.k5.l5.a170.l5.k5.l5.k5.l25.k5.l5.k5.l5.a170.l5.k5.l5.k5.l25.k5.l5.k5.l5.a170.l5.k5.l5.k5.l25.k5.l5.k5.l5.a170.l5.k5.l5.k5.l25.k5.l5.k5.l5.a170.l65.a170.l65.a170.l65.a170.l65.a170.l65.a170.l65.a170.l65.a170.l65.a170.l65.a170.l65.a170.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a170.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a170.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a170.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a170.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a165.l75.a160.l75.a160.l75.a160.l75.a160.l75.a80.l10.a70.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.a70.l20.a70.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.a70.l20.a70.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.a70.l20.a70.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.a70.l20.a70.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.a70.l30.a60.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a60.l40.a60.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a60.l40.a60.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a60.l40.a60.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a60.l40.a60.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.a60.l20.a5.l25.a50.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.a50.l25.a10.l25.a50.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.a50.l25.a10.l25.a50.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.a50.l25.a10.l25.a50.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.a50.l25.a10.l25.a50.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.n5.m5.a50.l25.a10.l10.m5.l35.k5.l5.k5.l5.k85.l5.k5.l5.k5.l35.m5.l10.a10.l10.m5.l35.k5.l5.k5.l5.k85.l5.k5.l5.k5.l35.m5.l10.a10.l10.m5.l35.k5.l5.k5.l5.k85.l5.k5.l5.k5.l35.m5.l10.a10.l10.m5.l35.k5.l5.k5.l5.k85.l5.k5.l5.k5.l35.m5.l10.a10.l10.m5.l35.k5.l5.k5.l5.k85.l5.k5.l5.k5.l35.m5.l10.a10.l10.k5.l10.m5.l5.m5.l145.m5.l5.m5.l5.k5.l15.a10.l10.k5.l10.m5.l5.m5.l145.m5.l5.m5.l5.k5.l15.a10.l10.k5.l10.m5.l5.m5.l145.m5.l5.m5.l5.k5.l15.a10.l10.k5.l10.m5.l5.m5.l145.m5.l5.m5.l5.k5.l15.a10.l10.k5.l10.m5.l5.m5.l145.m5.l5.m5.l5.k5.l15.a15.k5.o5.k5.l5.k5.l10.k5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.k5.l10.k5.l5.k10.o5.l5.a20.k5.o5.k5.l5.k5.l10.k5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.k5.l10.k5.l5.k10.o5.l5.a20.k5.o5.k5.l5.k5.l10.k5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.k5.l10.k5.l5.k10.o5.l5.a20.k5.o5.k5.l5.k5.l10.k5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.k5.l10.k5.l5.k10.o5.l5.a20.k5.o5.k5.l5.k5.l10.k5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.l5.m5.k5.l10.k5.l5.k10.o5.l5.a20.o5.k5.o5.k5.o5.k5.o5.k10.l5.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l5.k15.o5.k5.o5.k5.o5.k5.m5.a20.o5.k5.o5.k5.o5.k5.o5.k10.l5.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l5.k15.o5.k5.o5.k5.o5.k5.m5.a20.o5.k5.o5.k5.o5.k5.o5.k10.l5.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l5.k15.o5.k5.o5.k5.o5.k5.m5.a20.o5.k5.o5.k5.o5.k5.o5.k10.l5.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l5.k15.o5.k5.o5.k5.o5.k5.m5.a20.o5.k5.o5.k5.o5.k5.o5.k10.l5.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l10.k5.l5.k15.o5.k5.o5.k5.o5.k5.m5.a25.p5.o10.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o10.p5.a30.p5.o10.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o10.p5.a30.p5.o10.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o10.p5.a30.p5.o10.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o10.p5.a30.p5.o10.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o10.p5.a40.p5.o25.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o25.p5.a50.p5.o25.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o25.p5.a50.p5.o25.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o25.p5.a50.p5.o25.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o25.p5.a50.p5.o25.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o5.k5.o25.p5.a75.p5.o125.p5.a100.p5.o125.p5.a100.p5.o125.p5.a100.p5.o125.p5.a100.p5.o125.p5.a50"
+    pack: "a105p25a210p25a210p25a210p25a210p25a205p5q5r5q5r5q5p5a200p5q5r5q5r5q5p5a200p5q5r5q5r5q5p5a200p5q5r5q5r5q5p5a200p5q5r5q5r5q5p5a200q5r5q5r5q5r5q5a200q5r5q5r5q5r5q5a200q5r5q5r5q5r5q5a200q5r5q5r5q5r5q5a200q5r5q5r5q5r5q5a195p5r5q5r5q5r5q5r5p5a190p5r5q5r5q5r5q5r5p5a190p5r5q5r5q5r5q5r5p5a190p5r5q5r5q5r5q5r5p5a190p5r5q5r5q5r5q5r5p5a185p5r5q5r25q5r5p5a180p5r5q5r25q5r5p5a180p5r5q5r25q5r5p5a180p5r5q5r25q5r5p5a180p5r5q5r25q5r5p5a180r20q5r5q5r20a180r20q5r5q5r20a180r20q5r5q5r20a180r20q5r5q5r20a180r20q5r5q5r20a175r5q5r5q5r25q5r5q5r5a170r5q5r5q5r25q5r5q5r5a170r5q5r5q5r25q5r5q5r5a170r5q5r5q5r25q5r5q5r5a170r5q5r5q5r25q5r5q5r5a170r65a170r65a170r65a170r65a170r65a170r65a170r65a170r65a170r65a170r65a170s5r5s5r5s5r5s5r5s5r5s5r5s5a170s5r5s5r5s5r5s5r5s5r5s5r5s5a170s5r5s5r5s5r5s5r5s5r5s5r5s5a170s5r5s5r5s5r5s5r5s5r5s5r5s5a170s5r5s5r5s5r5s5r5s5r5s5r5s5a165r75a160r75a160r75a160r75a160r75a80r10a70r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5a70r20a70r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5a70r20a70r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5a70r20a70r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5a70r20a70r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5a70r30a60s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5a60r40a60s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5a60r40a60s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5a60r40a60s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5a60r40a60s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5a60r20a5r25a50s5t5s5t5s5t5s5t5s5t5s5t5s5t5s5a50r25a10r25a50s5t5s5t5s5t5s5t5s5t5s5t5s5t5s5a50r25a10r25a50s5t5s5t5s5t5s5t5s5t5s5t5s5t5s5a50r25a10r25a50s5t5s5t5s5t5s5t5s5t5s5t5s5t5s5a50r25a10r25a50s5t5s5t5s5t5s5t5s5t5s5t5s5t5s5a50r25a10r10s5r35q5r5q5r5q85r5q5r5q5r35s5r10a10r10s5r35q5r5q5r5q85r5q5r5q5r35s5r10a10r10s5r35q5r5q5r5q85r5q5r5q5r35s5r10a10r10s5r35q5r5q5r5q85r5q5r5q5r35s5r10a10r10s5r35q5r5q5r5q85r5q5r5q5r35s5r10a10r10q5r10s5r5s5r145s5r5s5r5q5r15a10r10q5r10s5r5s5r145s5r5s5r5q5r15a10r10q5r10s5r5s5r145s5r5s5r5q5r15a10r10q5r10s5r5s5r145s5r5s5r5q5r15a10r10q5r10s5r5s5r145s5r5s5r5q5r15a15q5u5q5r5q5r10q5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5q5r10q5r5q10u5r5a20q5u5q5r5q5r10q5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5q5r10q5r5q10u5r5a20q5u5q5r5q5r10q5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5q5r10q5r5q10u5r5a20q5u5q5r5q5r10q5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5q5r10q5r5q10u5r5a20q5u5q5r5q5r10q5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5r5s5q5r10q5r5q10u5r5a20u5q5u5q5u5q5u5q10r5q5r10q5r10q5r10q5r10q5r10q5r10q5r10q5r5q15u5q5u5q5u5q5s5a20u5q5u5q5u5q5u5q10r5q5r10q5r10q5r10q5r10q5r10q5r10q5r10q5r5q15u5q5u5q5u5q5s5a20u5q5u5q5u5q5u5q10r5q5r10q5r10q5r10q5r10q5r10q5r10q5r10q5r5q15u5q5u5q5u5q5s5a20u5q5u5q5u5q5u5q10r5q5r10q5r10q5r10q5r10q5r10q5r10q5r10q5r5q15u5q5u5q5u5q5s5a20u5q5u5q5u5q5u5q10r5q5r10q5r10q5r10q5r10q5r10q5r10q5r10q5r5q15u5q5u5q5u5q5s5a25v5u10q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u10v5a30v5u10q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u10v5a30v5u10q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u10v5a30v5u10q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u10v5a30v5u10q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u10v5a40v5u25q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u25v5a50v5u25q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u25v5a50v5u25q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u25v5a50v5u25q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u25v5a50v5u25q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u5q5u25v5a75v5u125v5a100v5u125v5a100v5u125v5a100v5u125v5a100v5u125v5a50"
   },
   peyote: {
     w: 21,
     h: 23,
     canvas: null,
     ctx: null,
-    pack: "L3.B3.L3.C.L.C.L3.B3.L4.D4.B3.C.L.C.L.C.B3.D4.L.D6.B.C.B.C3.B.C.B.D9.L.D4.C5.D4.L.D5.L3.D11.L3.D2.L4.E2.F.D7.G.H2.L7.E3.F.I.E.I.J.I.H.I.G.k.H2.L5.E3.F.I.E.I2.J.I4.G.k.H2.L4.E3.F.E.I2.E.J.I.H.I.H.G.H3.L3.E3.F.E.I4.J.I4.H.G.H3.L2.E3.F.I.E.I.E.I.J.I2.H.I2.G.k.H2.L.E4.F.E.I4.J.I5.G.H4.E3.F.E.I2.E.I2.J.I3.H.I.H.G.H3.E3.F.I6.J.I6.G.H3.E3.F.E.I.E.I3.J.I3.H.I.H.G.H3.E4.F.I5.J.I5.G.H4.E3.k.F.I.E.I3.J.I2.H.I2.G.k.H3.E4.F.I5.J.I4.H.G.H4.L.E2.k.E.F.I.E.I2.J.I4.G.H4.L2.E3.k.F.I4.J.I.H.I2.G.k.H3.L3.E3.I.F.I3.J.I3.G.I.H3.L6.E2.F.E.k2.J.k2.H.G.H2.L9.E2.F.E.k.J.k.H.G.H2.L5"
+    pack: "a9w3a17waxawa14yzax3azya11y3z5y3a9yABy7BAya8ACy2Ay3Ay2DAa7C3yACAyADAyBD2a5C3EACF2AF3AGBD2a4C3ECF2CHFDFDGD3a3C3ECF4HF4DGD3a2C3EFCFCFHF2DF2GBD2aC4ECF4HF5GD4C3ECF2CF2HF3DFDGD3C3EF6HF6GD3C3ECFCF3HF3DFDGD3C4EF5HF5GD4C3BEFCF3HF2DF2GBD3C4EF5HF4DGD4aC2BCEFCF2HF4GD4a2C3BEF4HFDF2GBD3a3C3FEF3HF3GFD3a6C2ECB2HB2DGD2a9C2ECBHBDGD2a5"
   }
 };
 
@@ -107,7 +103,7 @@ $.unpackGFX = function(cb) {
 
       var m = [], k, packs, idx;
 
-      packs = gfx.pack.split('.');
+      packs = gfx.pack.split(/(\w\d*)/g).filter(function(_) {return !!_});
       for(idx in packs) {
         k = parseInt(packs[idx].substr(1), 10);
         k = ( isNaN(k) ? 1 : k );
@@ -120,7 +116,16 @@ $.unpackGFX = function(cb) {
           );
       }
 
-      gfx.ctx.putImageData(new ImageData(new Uint8ClampedArray(m), gfx.w, gfx.h), 0, 0);
+      try {
+        gfx.ctx.putImageData(new ImageData(new Uint8ClampedArray(m), gfx.w, gfx.h), 0, 0);
+      } catch(e) {
+        //Last minute fix for Edge; slow as hell but it works :)
+        for(var i=0;i<m.length;i+=4) {
+          gfx.ctx.beginPath();
+          gfx.ctx.fillStyle = "rgba(" + m[i] + ", " + m[i+1] + ", " + m[i+2] + ", " + m[i+3] + ")";
+          gfx.ctx.fillRect(Math.floor((i / 4) % gfx.w), Math.floor((i / 4) / gfx.w), 1, 1);
+        }
+      }
     }
 
     /*gfx.canvas.style.top = gfx.h + "px";
